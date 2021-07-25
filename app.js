@@ -1,7 +1,7 @@
 import anime from '/node_modules/animejs/lib/anime.es.js';
 
 
-var elements = document.querySelectorAll('.dom-node-demo .el');
+// var elements = document.querySelectorAll('.dom-node-demo .el');
 
 anime({
     targets: '.fuc',
@@ -62,7 +62,7 @@ var backPath;
 //       delay: 8000,
 //     });
 // }
-window.onload = function (){
+
 anime({
   targets: '.backPath',
   translateY: 250,
@@ -81,7 +81,10 @@ anime({
   direction: 'reverse',
   easing: 'easeInOutSine',
   duration: 1000,
-  delay: anime.stagger(2000, {direction: 'reverse'}),
+  delay: anime.stagger(2000, {direction: 'reverse'}, {start: 1000}),
+  //delay: function(el, i, l) {
+    //return 1000+(i * 2000);
+  //}
 });
 
 anime({
@@ -92,7 +95,7 @@ anime({
   duration: 1000,
   delay: 8000,
 });
-}
+
 //hey hon, figure out a way to itterate this so that you dont have to write it out a bunch of times for each element.
 //use animejs staggering for moving all the things, might wanna pull the animejs func out of the onload?
 //gotta give all your svg paths ids to target them by.
